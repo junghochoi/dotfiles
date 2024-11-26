@@ -1,0 +1,23 @@
+[git_status]
+conflicted = "="
+ahead = "⇡${count} "
+behind = "⇣${count} "
+diverged = "⇕${ahead_count} 🐢 ×${behind_count} "
+untracked = "?${count} "
+stashed = "*${count} "
+modified = "!${count} "
+staged = "+${count} "
+renamed = "»${count} "
+deleted = "✘${count} "
+style = "bright-white"
+format = "$all_status$ahead_behind"
+
+[nodejs]
+format = " "
+
+[package]
+format = " "
+
+[character]
+
+vicmd_symbol = "[N >](bold green)"
