@@ -1,0 +1,15 @@
+[filter "lfs"]
+	clean = git-lfs clean -- %f
+	smudge = git-lfs smudge -- %f
+	process = git-lfs filter-process required = true
+[user]
+	name = c3-daniel-choi
+	email = daniel.choi@c3.ai
+[alias]
+	co = !git checkout $(git branch | fzf)
+	st = status
+  d = !git branch -d $(git branch | fzf)
+  br = branch
+  
+[push]
+	autoSetupRemote = true
