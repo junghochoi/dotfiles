@@ -1,41 +1,14 @@
-#!/bin/bash
+sudo rm -rf ~/.zshrc
+sudo rm -rf ~/.gitconfig
+sudo rm -rf ~/.config/starship.toml
 
-DOTFILES_DIR="$HOME/dotfiles/config"
-
-FILES=(".gitconfig", ".zshrc")
-CONFIG_DIRS=("./config/nvim", "./config/tmux")
-
-echo "Installing Dotfiles and Configs"
-
-for file in "${FILES[@]}"; do 
-
-  target = "$HOME/$file"
-
-  # Create back up if exists
-  if [ -e "$target"]; then 
-    echo "Backing up $target to $target.bak"
-    mv "$target" "$target.bak"
-  fi
-
-  # Create Symlink 
-  echo "Creating symlink for $file"
-  ln -s "$DOTFILES_DIR" "$target"
-done
+sudo rm -rf ~/.config/nvim
+sudo rm -rf ~/.config/tmux
 
 
-# Loop through and create symlinks for directories
-for dir in "${CONFIG_DIRS[@]}"; do
-  target="$HOME/$dir"
-  
-  # Backup existing directory if it exists
-  if [ -d "$target" ]; then
-    echo "Backing up $target to $target.bak"
-    mv "$target" "$target.bak"
-  fi
-  
-  # Create the symlink for the directory
-  echo "Creating symlink for directory $dir"
-  ln -s "$DOTFILES_DIR/$dir" "$target"
-done
+ln -sf ~/dotfiles/config/.gitconfig  		~/.gitconfig
+ln -sf ~/dotfiles/config/.zshrc 		    ~/.zshrc
+ln -sf ~/dotfiles/config/starship.toml  ~/.config/starship.toml
 
-echo "Dotfiles installed!"
+ln -sf ~/dotfiles/config/nvim	  ~/.config/nvim
+ln -sf ~/dotfiles/config/tmux 	~/.config/tmux
