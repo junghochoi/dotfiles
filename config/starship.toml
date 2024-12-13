@@ -2,7 +2,7 @@
 conflicted = "="
 ahead = "⇡${count} "
 behind = "⇣${count} "
-diverged = "⇕${ahead_count} 🐢 ×${behind_count} "
+diverged = "🐇×${ahead_count} 🐢×${behind_count} "
 untracked = "?${count} "
 stashed = "*${count} "
 modified = "!${count} "
