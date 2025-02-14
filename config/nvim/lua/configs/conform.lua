@@ -4,8 +4,9 @@ local options = {
     css = { "prettier" },
     html = { "prettier" },
     javascript = {"prettier"},
+    typescript = {"prettier"},
     python =  {
-      "ruff_format", 
+      "ruff_format",
       "ruff_fix",
       "ruff_organie_imports"
     }
