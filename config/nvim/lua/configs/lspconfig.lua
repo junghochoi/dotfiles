@@ -2,10 +2,10 @@
 require("nvchad.configs.lspconfig").defaults()
 
 local lspconfig = require "lspconfig"
+local nvlsp = require "nvchad.configs.lspconfig"
 
 -- EXAMPLE
-local servers = { "html", "cssls", "ts_ls",  "jsonls", "pylsp", "gopls" }
-local nvlsp = require "nvchad.configs.lspconfig"
+local servers = { "html", "cssls", "ts_ls", "jsonls", "pylsp", "gopls", "tailwindcss" }
 
 -- lsps with default config
 for _, lsp in ipairs(servers) do
@@ -22,4 +22,3 @@ end
 --   on_init = nvlsp.on_init,
 --   capabilities = nvlsp.capabilities,
 -- }
-
