@@ -6,6 +6,7 @@ local options = {
     javascript = { "prettier" },
     typescriptreact = { "prettier" },
     typescript = { "prettier" },
+    terraform = {"terraform_fmt"},
   },
 
   format_on_save = {

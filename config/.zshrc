@@ -1,16 +1,68 @@
-eval "$(starship init zsh)"export PATH="/opt/homebrew/bin:$PATH"
+# ----------------------------
+# ⚙️ Shell Initialization
+# ----------------------------
+
+# Starship prompt
+eval "$(starship init zsh)"
+
+# Set PATH
+export PATH="/opt/homebrew/bin:$PATH"
+export PATH="$PATH:/Users/dchoi/bin"
+
+# Zsh plugins
 plugins=(git)
+
+# ----------------------------
+# 📁 direnv
+# ----------------------------
+
 # BEGIN ANSIBLE MANAGED BLOCK for direnv
-# direnv setup
 eval "$(direnv hook zsh)"
 # END ANSIBLE MANAGED BLOCK for direnv
 
+# ----------------------------
+# 🔧 NVM (Node Version Manager)
+# ----------------------------
+
 export NVM_DIR="$HOME/.nvm"
-[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
-[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"
 
-# Create TMUX_CONF environment variable
-export TMUX_CONF=~/.config/tmux/tmux.conf
+# ----------------------------
+# 🧩 TMUX Configuration
+# ----------------------------
 
-# fzf initializer
+export TMUX_CONF="$HOME/.config/tmux/tmux.conf"
+
+# ----------------------------
+# 🔍 FZF (Fuzzy Finder)
+# ----------------------------
+
 source <(fzf --zsh)
+
+# ----------------------------
+# 🐳 Docker Completions
+# ----------------------------
+
+FPATH="$HOME/.docker/completions:$FPATH"
+autoload -Uz compinit
+compinit
+
+# ----------------------------
+# 🛠️ Aliases
+# ----------------------------
+
+alias tf=terraform
+
+# ----------------------------
+# ☁️ Google Cloud SDK
+# ----------------------------
+
+if [ -f "$HOME/Downloads/google-cloud-sdk/path.zsh.inc" ]; then
+  . "$HOME/Downloads/google-cloud-sdk/path.zsh.inc"
+fi
+
+if [ -f "$HOME/Downloads/google-cloud-sdk/completion.zsh.inc" ]; then
+  . "$HOME/Downloads/google-cloud-sdk/completion.zsh.inc"
+fi
+
