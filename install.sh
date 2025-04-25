@@ -15,8 +15,11 @@ ln -s ~/github/dotfiles/config/starship.toml  ~/.config/starship.toml
 
 ln -s ~/github/dotfiles/config/nvim	  ~/.config/nvim
 ln -s ~/github/dotfiles/config/tmux 	  ~/.config/tmux
-ln -s ~/github/dotfiles/config/skhd           ~/.config/skhd
-ln -s ~/github/dotfiles/config/yabai   ~/.config/yabai
+
+
+# Archived Configurations. To enable, move config files from ./archive_config to ./config/
+# ln -s ~/github/dotfiles/config/skhd           ~/.config/skhd
+# ln -s ~/github/dotfiles/config/yabai   ~/.config/yabai
 
 echo "Creating TMUX_CONF env variable"
 export TMUX_CONF=~/.config/tmux/tmux.conf
