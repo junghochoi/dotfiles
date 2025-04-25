@@ -49,10 +49,23 @@ autoload -Uz compinit
 compinit
 
 # ----------------------------
+# ☸️  Kubernetes Completions
+# ----------------------------
+source <(kubectl completion zsh)
+
+# ----------------------------
 # 🛠️ Aliases
 # ----------------------------
 
 alias tf=terraform
+alias k=kubectl
+
+# ----------------------------
+# 🐍 PyEnv Initialization 
+# ----------------------------
+eval "$(pyenv init --path)"
+eval "$(pyenv init -)"
+eval "$(pyenv virtualenv-init -)"
 
 # ----------------------------
 # ☁️ Google Cloud SDK
