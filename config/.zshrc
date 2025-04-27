@@ -13,14 +13,6 @@ export PATH="$PATH:/Users/dchoi/bin"
 plugins=(git)
 
 # ----------------------------
-# 📁 direnv
-# ----------------------------
-
-# BEGIN ANSIBLE MANAGED BLOCK for direnv
-eval "$(direnv hook zsh)"
-# END ANSIBLE MANAGED BLOCK for direnv
-
-# ----------------------------
 # 🔧 NVM (Node Version Manager)
 # ----------------------------
 
@@ -32,6 +24,7 @@ export NVM_DIR="$HOME/.nvm"
 # 🧩 TMUX Configuration
 # ----------------------------
 
+export XDG_CONFIG_HOME="$HOME/.config"
 export TMUX_CONF="$HOME/.config/tmux/tmux.conf"
 
 # ----------------------------

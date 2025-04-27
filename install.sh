@@ -55,8 +55,3 @@ link_config "$HOME/dotfiles/config/tmux"          "$HOME/.config/tmux"          
 # Archived Configurations. To enable, move config files from ./archive_config to ./config/
 # ln -s ~/dotfiles/config/skhd           ~/.config/skhd
 # ln -s ~/dotfiles/config/yabai   ~/.config/yabai
-
-echo "Creating TMUX_CONF env variable"
-export TMUX_CONF=~/.config/tmux/tmux.conf
-
-echo "Done"
