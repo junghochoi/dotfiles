@@ -6,13 +6,16 @@
 
 install_package() {
   local package=$1
-  echo "Installing $package..."
+  shift
+  local flags=("$@")
+
+  echo "Installing $package ${flags[*]}..."
   if command -v brew &> /dev/null; then
-    brew install "$package"
+    brew install "${flags[@]}" "$package"
   elif command -v apt &> /dev/null; then
-    sudo apt install -y "$package"
+    sudo apt install -y "${flags[@]}" "$package"
   elif command -v pacman &> /dev/null; then
-    sudo pacman -S --noconfirm "$package"
+    sudo pacman -S --noconfirm "${flags[@]}" "$package"
   else
     echo "Unsupported package manager. Please install $package manually."
   fi
@@ -42,13 +45,14 @@ install_package "awscli"
 install_package "google-cloud-sdk"
 install_package "pyenv"
 install_package "nvm"
+install_package "kitty" "--cask"
 
 # ----------------------------
 # Install Zsh plugins and tools
 # ----------------------------
 
 echo "Installing Zsh plugins..."
-# Zsh plugin installation, ensure the correct plugin manager (e.g., zplug, zinit) is set up if required.
+# (Plugin manager setup here if needed)
 
 # ----------------------------
 # Install TPM for Tmux
@@ -70,12 +74,6 @@ curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.3/install.sh | bash
 
 echo "Installing PyEnv (Python Version Manager)..."
 curl https://pyenv.run | bash
-
-# ----------------------------
-# Other Installations and Configurations
-# ----------------------------
-
-# Custom installation steps for Google Cloud SDK, Kubernetes, Docker, etc.
 
 # ----------------------------
 # Final Steps
