@@ -1,5 +1,8 @@
-# HELPER Functions
+#!/bin/bash
 
+# ----------------------------
+# HELPER Functions
+# ----------------------------
 
 echo_color() {
   local color=$1
@@ -35,23 +38,28 @@ link_config() {
   ln -s "$source" "$target"
 }
 
-# MAIN
+# ----------------------------
+# MAIN: Install Script
+# ----------------------------
+
+# Ensure we're in the correct directory
 if [[ "$(pwd)" != "$HOME/dotfiles"* ]]; then
     echo "Error: Script must be run from within ~/dotfiles"
-      exit 1
+    exit 1
 fi
 
 echo "Linking dotfiles..."
 
-
+# Linking config files
 link_config "$HOME/dotfiles/config/.gitconfig"    "$HOME/.gitconfig"              "git"
 link_config "$HOME/dotfiles/config/.zshrc"        "$HOME/.zshrc"                  "zsh"
 link_config "$HOME/dotfiles/config/starship.toml" "$HOME/.config/starship.toml"   "starship"
 link_config "$HOME/dotfiles/config/nvim"          "$HOME/.config/nvim"            "nvim"
 link_config "$HOME/dotfiles/config/tmux"          "$HOME/.config/tmux"            "tmux"
 
+# Run bootstrap.sh for tool installations
+echo_color "green" "Running bootstrap.sh to install required tools..."
+chmod +x bootstrap.sh
+./bootstrap.sh
 
-
-# Archived Configurations. To enable, move config files from ./archive_config to ./config/
-# ln -s ~/dotfiles/config/skhd           ~/.config/skhd
-# ln -s ~/dotfiles/config/yabai   ~/.config/yabai
+echo_color "green" "Setup complete!"
