@@ -59,8 +59,8 @@ link_config "$HOME/dotfiles/config/tmux"          "$HOME/.config/tmux"          
 link_config "$HOME/dotfiles/config/kitty"         "$HOME/.config/kitty"           "kitty"
 
 # Run bootstrap.sh for tool installations
-echo_color "green" "Running bootstrap.sh to install required tools..."
-chmod +x bootstrap.sh
-./bootstrap.sh
+# echo_color "green" "Running bootstrap.sh to install required tools..."
+# chmod +x bootstrap.sh
+# ./bootstrap.sh
 
 echo_color "green" "Setup complete!"
