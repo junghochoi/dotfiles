@@ -56,6 +56,7 @@ link_config "$HOME/dotfiles/config/.zshrc"        "$HOME/.zshrc"                
 link_config "$HOME/dotfiles/config/starship.toml" "$HOME/.config/starship.toml"   "starship"
 link_config "$HOME/dotfiles/config/nvim"          "$HOME/.config/nvim"            "nvim"
 link_config "$HOME/dotfiles/config/tmux"          "$HOME/.config/tmux"            "tmux"
+link_config "$HOME/dotfiles/config/kitty"         "$HOME/.config/kitty"           "kitty"
 
 # Run bootstrap.sh for tool installations
 echo_color "green" "Running bootstrap.sh to install required tools..."
