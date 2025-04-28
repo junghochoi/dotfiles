@@ -9,10 +9,10 @@ return {
     -- "3rd/image.nvim", -- Optional image support in preview window: See `# Preview Mode` for more information
   },
   opts = {
-    popup_border_style = "rounded",
+    -- popup_border_style = "rounded",
     default_component_configs = {
-      file_size = {
-        enabled = false,
+       file_size = {
+         enabled = false,
       },
       type = {
         enabled = false,
