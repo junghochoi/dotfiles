@@ -5,7 +5,7 @@ local lspconfig = require "lspconfig"
 local nvlsp = require "nvchad.configs.lspconfig"
 
 -- EXAMPLE
-local servers = { "html", "cssls", "ts_ls", "jsonls", "pylsp", "gopls", "tailwindcss", "yamlls", "terraformls" }
+local servers = { "html", "cssls", "ts_ls", "jsonls", "pylsp", "gopls", "tailwindcss", "helm_ls", "yamlls", "terraformls" }
 
 -- lsps with default config
 for _, lsp in ipairs(servers) do

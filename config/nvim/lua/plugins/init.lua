@@ -25,7 +25,9 @@ return {
         "json",
         "javascript",
         "typescript",
-        "tsx"
+        "tsx",
+        "yaml",
+        "helm"
       },
     },
   },
