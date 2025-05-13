@@ -35,3 +35,6 @@ require "nvchad.autocmds"
 vim.schedule(function()
   require "mappings"
 end)
+
+vim.opt.undofile = true
+vim.opt.undodir = vim.fn.stdpath("config") .. "/undo"

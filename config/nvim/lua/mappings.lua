@@ -21,6 +21,7 @@ map("n", "<C-k>", "<cmd>TmuxNavigateUp<cr>")
 map("n", "<C-j>", "<cmd>TmuxNavigateDown<cr>")
 
 map("n", "<leader>fg", "<cmd>Telescope live_grep<cr>") -- change live_grep keybinding
+map("t", "<ESC>", "<C-\\><C-n>", {desc = "Terminal escape terminal mode"})
 nomap("n", "<leader>fw") -- remove original keybinding
 
 -- map({ "n", "i", "v" }, "<C-s>", "<cmd> w <cr>")

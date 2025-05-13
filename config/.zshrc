@@ -72,3 +72,8 @@ if [ -f "$HOME/Downloads/google-cloud-sdk/completion.zsh.inc" ]; then
   . "$HOME/Downloads/google-cloud-sdk/completion.zsh.inc"
 fi
 
+
+# ----------------------------
+# 🪖 Helm Auto completion 
+# ----------------------------
+# source <(helm completion zsh)
