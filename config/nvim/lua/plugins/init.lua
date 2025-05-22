@@ -27,7 +27,8 @@ return {
         "typescript",
         "tsx",
         "yaml",
-        "helm"
+        "helm",
+        "terraform"
       },
     },
   },

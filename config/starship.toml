@@ -19,5 +19,4 @@ format = " "
 format = " "
 
 [character]
-
 vicmd_symbol = "[N >](bold green)"

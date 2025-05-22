@@ -7,13 +7,14 @@ local options = {
     typescriptreact = { "prettier" },
     typescript = { "prettier" },
     terraform = {"terraform_fmt"},
+    python = {"isort", "ruff", "autopep8"}
   },
 
-  format_on_save = {
-    -- These options will be passed to conform.format()
-    timeout_ms = 500,
-    lsp_fallback = true,
-  },
+  -- format_on_save = {
+  --   -- These options will be passed to conform.format()
+  --   timeout_ms = 500,
+  --   lsp_fallback = true,
+  -- },
 }
 
 return options

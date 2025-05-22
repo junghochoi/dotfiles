@@ -3,11 +3,7 @@
 -- Please read that file to know all available options :(
 
 ---@type ChadrcConfig
-local M = {
-  nvdash = {
-    load_on_startup = true,
-  },
-}
+local M = {}
 
 M.base46 = {
   theme = "onenord",
@@ -15,6 +11,15 @@ M.base46 = {
   -- 	Comment = { italic = true },
   -- 	["@comment"] = { italic = true },
   -- },
+}
+
+M.nvdash = {
+  load_on_startup = true
+}
+
+
+M.ui = {
+
 }
 
 return M
