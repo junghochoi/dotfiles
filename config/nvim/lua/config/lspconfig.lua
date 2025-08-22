@@ -1,3 +1,7 @@
+
+-- LSP Setup
+
+
 local lspconfig = require("lspconfig")
 local on_attach = function(_, bufnr)
 	local opts = { buffer = bufnr, noremap = true, silent = true }

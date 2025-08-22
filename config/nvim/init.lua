@@ -1,6 +1,6 @@
 require("config.lazy")
 require("config.lspconfig")
-
+require("config.cmp")
 require("core.mappings")
 require("core.options")
 
