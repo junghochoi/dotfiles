@@ -26,7 +26,7 @@ local on_init = function(client, _)
 	end
 end
 
-local capabilities = vim.lsp.protocol.make_client_capabilities()
+local capabilities = require("blink.cmp").get_lsp_capabilities()
 
 local servers = {
 	"html",

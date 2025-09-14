@@ -1,7 +1,6 @@
-require("config.lazy")
-require("config.lspconfig")
-require("config.cmp")
-require("core.mappings")
-require("core.options")
+require("config.lazy")  -- Installs Lazy
+require("config.lspconfig") -- Configures LSP
+-- require("config.cmp")  -- Configure Completion Sources
 
-vim.opt.termguicolors = true -- required for bufferline.nvim to work
+require("core.mappings") -- Configure key mappings
+require("core.options") -- Configure Vim Options

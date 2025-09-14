@@ -52,6 +52,7 @@ source <(kubectl completion zsh)
 
 alias tf=terraform
 alias k=kubectl
+alias ls='ls --color=auto'
 
 # ----------------------------
 # 🐍 PyEnv Initialization 

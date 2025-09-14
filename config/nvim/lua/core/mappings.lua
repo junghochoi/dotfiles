@@ -5,9 +5,6 @@ local nomap = vim.keymap.del
 local telescope = require("telescope.builtin")
 
 -- map("n", "-", vim.cmd.Ex)
-
-
-
 nomap("n", "grr", { desc = "Delete lsp references" })
 
 -- 
@@ -18,7 +15,6 @@ map("n", "<leader>fb", telescope.buffers, { desc = "Telescope buffers" })
 map("n", "<leader>fh", telescope.help_tags, { desc = "Telescope help tags" })
 
 map("n", ";", ":", { desc = "CMD enter command mode" })
--- map("i", "jk", "<ESC>")
 map("n", "K", "5k")
 map("n", "J", "5j")
 map("n", "L", "5l")
