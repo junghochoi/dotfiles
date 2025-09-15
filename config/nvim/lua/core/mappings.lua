@@ -12,6 +12,8 @@ map("n", "<leader>fg", telescope.live_grep, { desc = "Telescope live grep" })
 map("n", "<leader>fb", telescope.buffers, { desc = "Telescope buffers" })
 map("n", "<leader>fh", telescope.help_tags, { desc = "Telescope help tags" })
 
+-- map("n", "gr", telescope.lsp_references, {desc = "Telescope find references"})
+
 map("n", ";", ":", { desc = "CMD enter command mode" })
 map("n", "K", "5k")
 map("n", "J", "5j")
@@ -38,19 +40,19 @@ end, { desc = "Format current file with conform" })
 
 
 -- diagnostics
-map("n", "<leader>dt", function()
-  local config = vim.diagnostic.config()
-  vim.diagnostic.config({
-    virtual_text = not config.virtual_text,
-    underline = not config.underline
-  })
-  print("Diagnostics toggled")
-end, { desc = "Toggle inline diagnostics" })
-
-
-map("n", "<leader>dl", function()
-  vim.diagnostic.open_float(0, { scope = "line" })
-end)
+-- map("n", "<leader>dt", function()
+--   local config = vim.diagnostic.config()
+--   vim.diagnostic.config({
+--     virtual_text = not config.virtual_text,
+--     underline = not config.underline
+--   })
+--   print("Diagnostics toggled")
+-- end, { desc = "Toggle inline diagnostics" })
+--
+--
+-- map("n", "<leader>dl", function()
+--   vim.diagnostic.open_float(0, { scope = "line" })
+-- end)
 
 
 
@@ -81,6 +83,19 @@ map("n", "<leader>hm", function() harpoonMark.add_file()  end, {desc = "Open Har
 -- map("n", "<leader>x", "<Cmd>BufferClose<CR>", { desc = "Close buffer" })
 
 
-map("n", "<Tab>", "<cmd>bnext<CR>", { desc = "Next buffer" })
-map("n", "<S-Tab>", "<cmd>bprev<CR>", { desc = "Previous buffer" })
-map("n", "<leader>x", function() Snacks.bufdelete() end, { desc = "Close buffer" })
+-- map("n", "<Tab>", "<cmd>bnext<CR>", { desc = "Next buffer" })
+-- map("n", "<S-Tab>", "<cmd>bprev<CR>", { desc = "Previous buffer" })
+-- map("n", "<leader>x", function() Snacks.bufdelete() end, { desc = "Close buffer" })
+
+-- Trouble nvim
+map("n", "<leader>tt", "<cmd>Trouble diagnostics toggle focus=true<cr>", { desc = "Diagnostics (Trouble)" })
+map("n", "<leader>ts", "<cmd>Trouble lsp_document_symbols toggle focus=true win.position=left<cr>", { desc = "Document Symobls" })
+map("n", "<leader>td", "<cmd>Trouble lsp_declarations toggle focus=true <cr>", { desc = "Document Symobls" })
+map("n", "<leader>tr", "<cmd>Trouble lsp_references toggle focus=true <cr>", { desc = "Document Symobls" })
+
+-- map("n", "<leader>tT", "<cmd>Trouble diagnostics toggle filter.buf=0<cr>", { desc = "Buffer Diagnostics (Trouble)" })
+-- map("n", "<leader>cs", "<cmd>Trouble symbols toggle focus=false<cr>", { desc = "Symbols (Trouble)" })
+-- map("n", "<leader>cl", "<cmd>Trouble lsp toggle focus=false win.position=left<cr>", { desc = "LSP Definitions / References (Trouble)" })
+-- map("n", "<leader>tQ", "<cmd>Trouble qflist toggle<cr>", { desc = "Quickfix List (Trouble)" })
+-- map("n", "<leader>tL", "<cmd>Trouble loclist toggle<cr>", { desc = "Location List (Trouble)" })
+

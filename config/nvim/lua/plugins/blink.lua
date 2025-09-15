@@ -17,8 +17,17 @@ return {
 		--
 		-- See :h blink-cmp-config-keymap for defining your own keymap
 		keymap = {
-			preset = "super-tab",
+			preset = "default",
+			-- preset = "super-tab",
 			["<C-d>"] = { "show_documentation" },
+		},
+
+		cmdline = {
+			keymap = {
+				-- recommended, as the default keymap will only show and select the next item
+				["<Tab>"] = { "show", "accept" },
+			},
+			completion = { menu = { auto_show = true } },
 		},
 
 		appearance = {
