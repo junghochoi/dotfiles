@@ -34,12 +34,12 @@ return {
 		-- more information about the available options.
 		keys = {
 			{
-				"<leader>fc",
+				"<leader>cs",
 				"<cmd>Telescope codesearch find_files<cr>",
 				desc = "Find codesearch files",
 			},
 			{
-				"<leader>fcc",
+				"<leader>cg",
 				"<cmd>Telescope codesearch find_query<cr>",
 				desc = "Find codesearch query",
 			},
