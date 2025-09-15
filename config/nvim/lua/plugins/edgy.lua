@@ -13,8 +13,7 @@ return {
 			},
 			-- Any Trouble window at the bottom
 			{
-				ft = "trouble",
-				title = "Trouble",
+				ft = "trouble", title = "Trouble",
 				size = { height = 0.4 }, -- 40%
 			},
 		},
