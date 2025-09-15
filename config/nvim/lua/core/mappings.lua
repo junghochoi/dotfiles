@@ -1,11 +1,9 @@
 vim.g.mapleader = " "
 
 local map = vim.keymap.set
-local nomap = vim.keymap.del
 local telescope = require("telescope.builtin")
 
 -- map("n", "-", vim.cmd.Ex)
-nomap("n", "grr", { desc = "Delete lsp references" })
 
 -- 
 
