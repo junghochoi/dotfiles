@@ -1,6 +1,4 @@
-
 -- LSP Setup
-
 
 local lspconfig = require("lspconfig")
 local on_attach = function(_, bufnr)
@@ -40,7 +38,7 @@ local servers = {
 	"helm_ls",
 	"yamlls",
 	"terraformls",
-  "bashls"
+	"bashls",
 }
 
 -- lsps with default config
@@ -52,7 +50,7 @@ for _, lsp in ipairs(servers) do
 	})
 end
 
--- configuring single server: lua_ls
+-- configuing single server: lua_ls
 lspconfig.lua_ls.setup({
 	on_attach = on_attach,
 	on_init = on_init,
@@ -68,3 +66,16 @@ lspconfig.lua_ls.setup({
 		},
 	},
 })
+
+require("lspconfig.configs").ciderlsp = {
+	default_config = {
+		cmd = { "/google/bin/releases/cider/ciderlsp/ciderlsp", "--tooltag=nvim-lsp", "--noforward_sync_responses" },
+		filetypes = { "c", "cpp", "java", "kotlin", "objc", "proto", "textpb", "go", "python", "bzl", "typescript" },
+		offset_encoding = "utf-8",
+		root_dir = lspconfig.util.root_pattern(".citc"),
+		settings = {},
+	},
+}
+
+
+lspconfig.ciderlsp.setup {}
