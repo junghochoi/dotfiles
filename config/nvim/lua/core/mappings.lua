@@ -14,10 +14,6 @@ map("n", "<leader>fh", telescope.help_tags, { desc = "Telescope help tags" })
 map("n", "<leader>cs",  "<cmd>Telescope codesearch find_files<cr>",  { desc = "Telescope Codesearch" })
 map("n", "<leader>cd",  "<cmd>Telescope codesearch find_query<cr>",  { desc = "Telescope Codesearch" })
 
--- map("n", "gr", telescope.lsp_references, {desc = "Telescope find references"})
-
--- map("n", "gr", telescope.lsp_references, {desc = "Telescope find references"})
-
 map("n", ";", ":", { desc = "CMD enter command mode" })
 map("n", "K", "5k")
 map("n", "J", "5j")
