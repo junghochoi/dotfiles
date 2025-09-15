@@ -16,6 +16,8 @@ map("n", "<leader>cd",  "<cmd>Telescope codesearch find_query<cr>",  { desc = "T
 
 -- map("n", "gr", telescope.lsp_references, {desc = "Telescope find references"})
 
+-- map("n", "gr", telescope.lsp_references, {desc = "Telescope find references"})
+
 map("n", ";", ":", { desc = "CMD enter command mode" })
 map("n", "K", "5k")
 map("n", "J", "5j")
