@@ -25,13 +25,18 @@ map("v", "J", "5j")
 map("v", "L", "5l")
 map("v", "H", "5h")
 
-map("n", "<C-n>", ":Neotree filesystem reveal left<CR>")
+map("n", "<C-n>", ":Neotree filesystem toggle<CR>")
 
 -- tmux navigator
 map("n", "<C-h>", "<cmd>TmuxNavigateLeft<cr>")
 map("n", "<C-l>", "<cmd>TmuxNavigateRight<cr>")
 map("n", "<C-k>", "<cmd>TmuxNavigateUp<cr>")
 map("n", "<C-j>", "<cmd>TmuxNavigateDown<cr>")
+
+map("n", "<C-Up>", "<cmd>resize +2<cr>", { desc = "Increase Window Height" })
+map("n", "<C-Down>", "<cmd>resize -2<cr>", { desc = "Decrease Window Height" })
+map("n", "<C-Right>", "<cmd>vertical resize +2<cr>", { desc = "Increase Window Width" })
+map("n", "<C-Left>", "<cmd>vertical resize -2<cr>", { desc = "Decrease Window Width" })
 
 -- conform.nvim
 map("n", "<leader>fm", function()
