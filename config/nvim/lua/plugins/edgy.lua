@@ -1,25 +1,21 @@
 return {
 	"folke/edgy.nvim",
-	event = "VeryLazy",
 	opts = {
-
+    animate ={
+      enabled = false
+    },
 		left = {
+			-- Neo-tree at the top
 			{
-				ft = "Trouble",
-				title = "Diagnostics",
-				size = { width = 40 },
-				filter = function(buf)
-					return vim.bo[buf].filetype == "Trouble" and vim.api.nvim_buf_get_name(buf):match(".*diagnostics.*")
-				end,
+				ft = "neo-tree",
+				title = "Neo-Tree",
+				size = { height = 0.6 }, -- 60%
 			},
+			-- Any Trouble window at the bottom
 			{
-				ft = "Trouble",
-				title = "Document Symbols",
-				size = { width = 40 },
-				filter = function(buf)
-					return vim.bo[buf].filetype == "Trouble"
-						and vim.api.nvim_buf_get_name(buf):match(".*document_symbols.*")
-				end,
+				ft = "trouble",
+				title = "Trouble",
+				size = { height = 0.4 }, -- 40%
 			},
 		},
 	},
