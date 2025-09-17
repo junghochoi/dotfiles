@@ -94,7 +94,7 @@ map("n", "<leader>hm", function() harpoonMark.add_file()  end, {desc = "Open Har
 -- Trouble nvim
 map("n", "<leader>tt", "<cmd>Trouble diagnostics toggle focus=true<cr>", { desc = "Diagnostics (Trouble)" })
 map("n", "<leader>ts", "<cmd>Trouble lsp_document_symbols toggle focus=true win.position=left<cr>", { desc = "Document Symobls" })
-map("n", "<leader>td", "<cmd>Trouble lsp_declarations toggle focus=true  <cr>", { desc = "Document Symobls" })
+map("n", "<leader>td", "<cmd>Trouble lsp_definitions toggle focus=true  <cr>", { desc = "Document Symobls" })
 map("n", "<leader>tr", "<cmd>Trouble lsp_references toggle focus=true <cr>", { desc = "Document Symobls" })
 
 -- map("n", "<leader>tT", "<cmd>Trouble diagnostics toggle filter.buf=0<cr>", { desc = "Buffer Diagnostics (Trouble)" })
