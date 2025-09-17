@@ -27,6 +27,11 @@
   
 - **Updating Raycast Configurations**:
   - After making changes to your Raycast setup, manually upload/download the settings and update this repository.
+- **Must disable MacOS shortcuts**:
+  - System Settings > Keyboard > Keyboard Shortcuts 
+    - Disable Control + (Left, Right, Down, Up) shortcuts
+
+    
 
 ---
 
