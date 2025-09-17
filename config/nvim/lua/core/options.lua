@@ -4,9 +4,7 @@ local cmd = vim.cmd
 local fn = vim.fn
 local opt = vim.opt
 
-
-vim.cmd('source /usr/share/vim/google/google.vim')
-
+-- vim.cmd('source /usr/share/vim/google/google.vim')
 opt.termguicolors = true -- required for bufferline.nvim to work
 
 o.shiftwidth = 2

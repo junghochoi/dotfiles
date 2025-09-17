@@ -27,18 +27,18 @@ end
 local capabilities = require("blink.cmp").get_lsp_capabilities()
 
 local servers = {
-	"html",
+	-- "html",
 	"lua_ls",
-	"cssls",
-	"ts_ls",
-	"jsonls",
-	"pylsp",
-	"gopls",
-	"tailwindcss",
-	"helm_ls",
-	"yamlls",
-	"terraformls",
-	"bashls",
+	-- "cssls",
+	-- "ts_ls",
+	-- "jsonls",
+	-- "pylsp",
+	-- "gopls",
+	-- "tailwindcss",
+	-- "helm_ls",
+	-- "yamlls",
+	-- "terraformls",
+	-- "bashls",
 }
 
 -- lsps with default config

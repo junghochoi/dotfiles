@@ -3,6 +3,7 @@
 -- Please read that file to know all available options :(
 
 ---@type ChadrcConfig
+---
 local M = {}
 
 M.base46 = {
