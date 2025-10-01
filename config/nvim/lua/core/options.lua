@@ -45,4 +45,4 @@ d.config({
 
 
 -- Color Scheme
-cmd("colorscheme catppuccin-mocha")
+cmd("colorscheme catppuccin-frappe")

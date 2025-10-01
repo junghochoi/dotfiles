@@ -3,15 +3,23 @@ local map = vim.keymap.set
 local telescope = require("telescope.builtin")
 
 -- map("n", "-", vim.cmd.Ex)
+--
+--
 
--- 
+function telescope_lsp_references()
+	return telescope.lsp_references({
+		include_current_line = false,
+	})
+end
 
 map("n", "<leader>ff", telescope.find_files, { desc = "Telescope find files" })
 map("n", "<leader>fg", telescope.live_grep, { desc = "Telescope live grep" })
 map("n", "<leader>fb", telescope.buffers, { desc = "Telescope buffers" })
 map("n", "<leader>fh", telescope.help_tags, { desc = "Telescope help tags" })
-map("n", "<leader>cs",  "<cmd>Telescope codesearch find_files<cr>",  { desc = "Telescope Codesearch" })
-map("n", "<leader>cd",  "<cmd>Telescope codesearch find_query<cr>",  { desc = "Telescope Codesearch" })
+map("n", "<leader>fr", telescope_lsp_references, { desc = "Telescope help tags" })
+
+map("n", "<leader>cs", "<cmd>Telescope codesearch find_files<cr>", { desc = "Telescope Codesearch" })
+map("n", "<leader>cd", "<cmd>Telescope codesearch find_query<cr>", { desc = "Telescope Codesearch" })
 
 map("n", ";", ":", { desc = "CMD enter command mode" })
 map("n", "K", "5k")
@@ -42,7 +50,6 @@ map("n", "<leader>fm", function()
 	require("conform").format()
 end, { desc = "Format current file with conform" })
 
-
 -- diagnostics
 -- map("n", "<leader>dt", function()
 --   local config = vim.diagnostic.config()
@@ -58,26 +65,23 @@ end, { desc = "Format current file with conform" })
 --   vim.diagnostic.open_float(0, { scope = "line" })
 -- end)
 
-
-
 -- linting
 map("n", "<leader>ll", function()
-  print("Linting current file")
-  require('lint').try_lint()
-
-end, {desc = "Trigger linting for the current file"})
-
-
+	print("Linting current file")
+	require("lint").try_lint()
+end, { desc = "Trigger linting for the current file" })
 
 -- Harpoon!
 local harpoonUi = require("harpoon.ui")
 local harpoonMark = require("harpoon.mark")
-map("n", "<leader>hh", function() harpoonUi.toggle_quick_menu() end, {desc = "Open Harpoon Quickselect menu"})
-map("n", "<leader>hm", function() harpoonMark.add_file()  end, {desc = "Open Harpoon Quickselect menu"})
+map("n", "<leader>e", function()
+	harpoonUi.toggle_quick_menu()
+end, { desc = "Open Harpoon Quickselect menu" })
+map("n", "<C-a>", function()
+	harpoonMark.add_file()
+end, { desc = "Open Harpoon Quickselect menu" })
 
-
-
--- Bufferline  
+-- Bufferline
 -- map("n", "<Tab>", "<cmd>BufferLineCycleNext<CR>", { desc = "Next buffer" })
 -- map("n", "<S-Tab>", "<cmd>BufferLineCyclePrev<CR>", { desc = "Previous buffer" })
 -- map("n", "<leader>x", function() Snacks.bufdelete() end, { desc = "Close buffer" })
@@ -86,20 +90,24 @@ map("n", "<leader>hm", function() harpoonMark.add_file()  end, {desc = "Open Har
 -- map("n", "<S-Tab>", "<Cmd>BufferPrevious<CR>", { desc = "Previous buffer" })
 -- map("n", "<leader>x", "<Cmd>BufferClose<CR>", { desc = "Close buffer" })
 
-
 -- map("n", "<Tab>", "<cmd>bnext<CR>", { desc = "Next buffer" })
 -- map("n", "<S-Tab>", "<cmd>bprev<CR>", { desc = "Previous buffer" })
 -- map("n", "<leader>x", function() Snacks.bufdelete() end, { desc = "Close buffer" })
 
--- Trouble nvim
-map("n", "<leader>tt", "<cmd>Trouble diagnostics toggle focus=true<cr>", { desc = "Diagnostics (Trouble)" })
-map("n", "<leader>ts", "<cmd>Trouble lsp_document_symbols toggle focus=true win.position=left<cr>", { desc = "Document Symobls" })
-map("n", "<leader>td", "<cmd>Trouble lsp_definitions toggle focus=true  <cr>", { desc = "Document Symobls" })
-map("n", "<leader>tr", "<cmd>Trouble lsp_references toggle focus=true <cr>", { desc = "Document Symobls" })
+-- Trouble and LSP nvim
+map("n", "<leader>tt", "<cmd>Trouble diagnostics toggle focus=true<cr>", { desc = "Trouble Diagnostics" })
+map(
+	"n",
+	"<leader>ts",
+	"<cmd>Trouble lsp_document_symbols toggle focus=true win.position=left<cr>",
+	{ desc = "Trouble Document Symobls" }
+)
+map("n", "<leader>td", "<cmd>Trouble lsp_definitions toggle focus=true  <cr>", { desc = "Trouble LSP definitions" })
+map("n", "<leader>tr", "<cmd>Trouble lsp_references toggle focus=true <cr>", { desc = "Trouble LSP References" })
+map("n", "<leader>th", vim.lsp.buf.hover, { desc = "lsp hover" })
 
 -- map("n", "<leader>tT", "<cmd>Trouble diagnostics toggle filter.buf=0<cr>", { desc = "Buffer Diagnostics (Trouble)" })
 -- map("n", "<leader>cs", "<cmd>Trouble symbols toggle focus=false<cr>", { desc = "Symbols (Trouble)" })
 -- map("n", "<leader>cl", "<cmd>Trouble lsp toggle focus=false win.position=left<cr>", { desc = "LSP Definitions / References (Trouble)" })
 -- map("n", "<leader>tQ", "<cmd>Trouble qflist toggle<cr>", { desc = "Quickfix List (Trouble)" })
 -- map("n", "<leader>tL", "<cmd>Trouble loclist toggle<cr>", { desc = "Location List (Trouble)" })
-

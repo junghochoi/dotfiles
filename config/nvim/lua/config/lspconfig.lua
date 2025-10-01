@@ -27,7 +27,7 @@ end
 local capabilities = require("blink.cmp").get_lsp_capabilities()
 
 local servers = {
-	-- "html",
+	"html",
 	"lua_ls",
 	-- "cssls",
 	-- "ts_ls",
