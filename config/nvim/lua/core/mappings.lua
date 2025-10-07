@@ -73,8 +73,8 @@ end, {desc = "Trigger linting for the current file"})
 -- Harpoon!
 local harpoonUi = require("harpoon.ui")
 local harpoonMark = require("harpoon.mark")
-map("n", "<leader>hh", function() harpoonUi.toggle_quick_menu() end, {desc = "Open Harpoon Quickselect menu"})
-map("n", "<leader>hm", function() harpoonMark.add_file()  end, {desc = "Open Harpoon Quickselect menu"})
+map("n", "<leader>e", function() harpoonUi.toggle_quick_menu() end, {desc = "Open Harpoon Quickselect menu"})
+map("n", "<C-A>", function() harpoonMark.add_file()  end, {desc = "Open Harpoon Quickselect menu"})
 
 
 

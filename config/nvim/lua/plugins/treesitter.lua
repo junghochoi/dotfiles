@@ -34,6 +34,9 @@ return {
 				enable = true, -- Enables smart indentation
 			},
 
+			autotag = {
+				enable = true,
+			},
 			-- Optional: Enable the 'textobjects' module, which is another plugin.
 			-- You would usually configure this in a separate plugin entry,
 			-- but this shows how to integrate it if you had the dependency.
@@ -41,4 +44,3 @@ return {
 		})
 	end,
 }
-
