@@ -18,8 +18,8 @@ map("n", "<leader>fb", telescope.buffers, { desc = "Telescope buffers" })
 map("n", "<leader>fh", telescope.help_tags, { desc = "Telescope help tags" })
 map("n", "<leader>fr", telescope_lsp_references, { desc = "Telescope help tags" })
 
-map("n", "<leader>cs", "<cmd>Telescope codesearch find_files<cr>", { desc = "Telescope Codesearch" })
-map("n", "<leader>cd", "<cmd>Telescope codesearch find_query<cr>", { desc = "Telescope Codesearch" })
+-- map("n", "<leader>cs", "<cmd>Telescope codesearch find_files<cr>", { desc = "Telescope Codesearch" })
+-- map("n", "<leader>cd", "<cmd>Telescope codesearch find_query<cr>", { desc = "Telescope Codesearch" })
 
 map("n", ";", ":", { desc = "CMD enter command mode" })
 map("n", "K", "5k")
@@ -104,7 +104,7 @@ map(
 )
 map("n", "<leader>td", "<cmd>Trouble lsp_definitions toggle focus=true  <cr>", { desc = "Trouble LSP definitions" })
 map("n", "<leader>tr", "<cmd>Trouble lsp_references toggle focus=true <cr>", { desc = "Trouble LSP References" })
-map("n", "<leader>th", vim.lsp.buf.hover, { desc = "lsp hover" })
+map("n", "<leader>th", function() vim.lsp.buf.hover({border="rounded"}) end, { desc = "lsp hover" })
 
 -- map("n", "<leader>tT", "<cmd>Trouble diagnostics toggle filter.buf=0<cr>", { desc = "Buffer Diagnostics (Trouble)" })
 -- map("n", "<leader>cs", "<cmd>Trouble symbols toggle focus=false<cr>", { desc = "Symbols (Trouble)" })
