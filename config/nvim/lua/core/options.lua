@@ -4,6 +4,7 @@ local cmd = vim.cmd
 local fn = vim.fn
 local opt = vim.opt
 
+
 opt.termguicolors = true -- required for bufferline.nvim to work
 
 o.shiftwidth = 2
@@ -44,4 +45,4 @@ d.config({
 
 
 -- Color Scheme
-cmd("colorscheme catppuccin-mocha")
+cmd("colorscheme catppuccin-frappe")
