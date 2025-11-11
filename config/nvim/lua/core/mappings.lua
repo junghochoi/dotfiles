@@ -1,18 +1,17 @@
-vim.g.mapleader = " "
 
-local map = vim.keymap.set
-local telescope = require("telescope.builtin")
+ local map = vim.keymap.set
+-- local telescope = require("telescope.builtin")
+local fzf_lua = require("fzf-lua")
 
 -- map("n", "-", vim.cmd.Ex)
-
--- 
-
-map("n", "<leader>ff", telescope.find_files, { desc = "Telescope find files" })
-map("n", "<leader>fg", telescope.live_grep, { desc = "Telescope live grep" })
-map("n", "<leader>fb", telescope.buffers, { desc = "Telescope buffers" })
-map("n", "<leader>fh", telescope.help_tags, { desc = "Telescope help tags" })
-
+-- map("n", "<leader>ff", telescope.find_files, { desc = "Telescope find files" })
+-- map("n", "<leader>fg", telescope.live_grep, { desc = "Telescope live grep" })
+-- map("n", "<leader>fh", telescope.help_tags, { desc = "Telescope help tags" })
 -- map("n", "gr", telescope.lsp_references, {desc = "Telescope find references"})
+
+
+map("n", "<leader>ff", fzf_lua.files, { desc = "fzf files"})
+map("n", "<leader>fb", fzf_lua.buffers, { desc = "fzf buffers" })
 
 map("n", ";", ":", { desc = "CMD enter command mode" })
 map("n", "K", "5k")
