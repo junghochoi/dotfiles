@@ -72,7 +72,6 @@ vim.lsp.config("ciderlsp", {
   -- end,
   settings = {},
 })
-
 vim.lsp.enable({ "ciderlsp" })
 
 
