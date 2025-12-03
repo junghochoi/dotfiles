@@ -36,7 +36,7 @@ local servers = {
   -- "yamlls",
   -- "terraformls",
   -- "bashls",
-  -- "clangd"
+  "clangd"
 }
 
 
@@ -63,16 +63,24 @@ vim.lsp.config("lua_ls", {
 
 vim.lsp.enable(servers)
 
+
+
 vim.lsp.config("ciderlsp", {
   cmd = { "/google/bin/releases/cider/ciderlsp/ciderlsp", "--tooltag=nvim-lsp", "--noforward_sync_responses" },
-  filetypes = { "c", "cpp", "java", "kotlin", "objc", "proto", "textpb", "go", "python", "bzl", "typescript" },
+  -- Use local clangd for cpp files
+  -- filetypes = { "c", "cpp", "java", "kotlin", "objc", "proto", "textpb", "go", "python", "bzl", "typescript" },
+  filetypes = { "java", "kotlin", "objc", "proto", "textpb", "go", "python", "bzl", "typescript" },
   offset_encoding = "utf-8",
+  -- root_dir = lspconfig.util.root_pattern(".citc"),
   -- root_dir = function(bufnr)
   --   return vim.fs.root(bufnr, { ".citc" })
   -- end,
+  root_dir = vim.fs.root(vim.api.nvim_get_current_buf(), ".citc"),
   settings = {},
 })
 vim.lsp.enable({ "ciderlsp" })
+
+
 
 
 

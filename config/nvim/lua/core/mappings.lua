@@ -15,12 +15,13 @@ map("n", "<leader>bp", custom_funcs.copy_google3_path, { desc = "Copy google3 pa
 
 
 --neo-tree
-
 map("n", "<C-m>", ":Neotree filesystem toggle<CR>")
 map("n", "<C-n>", ":Neotree filesystem reveal<CR>")
 
+
 -- fzf-lua
 map("n", "<leader>ff", fzf_lua.files, { desc = "fzf_lua files" })
+map("n", "<leader>fg", fzf_lua.live_grep, { desc = "fzf_lua files" })
 map("n", "<leader>fb", fzf_lua.buffers, { desc = "fzf_lua buffers" })
 
 
@@ -47,13 +48,11 @@ map("n", "<leader>ll", function()
 end, { desc = "Trigger linting for the current file" })
 
 -- Harpoon!
-local harpoonUi = require("harpoon.ui")
-local harpoonMark = require("harpoon.mark")
 map("n", "<leader>e", function()
-  harpoonUi.toggle_quick_menu()
+  require("harpoon.ui").toggle_quick_menu()
 end, { desc = "Open Harpoon Quickselect menu" })
 map("n", "<C-a>", function()
-  harpoonMark.add_file()
+  require("harpoon.mark").add_file()
 end, { desc = "Open Harpoon Quickselect menu" })
 
 -- Trouble and LSP nvim
