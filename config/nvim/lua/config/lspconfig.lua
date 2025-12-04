@@ -1,7 +1,6 @@
 -- local on_attach = function(_, bufnr)
 -- 	local opts = { buffer = bufnr, noremap = true, silent = true }
 -- 	local map = vim.keymap.set
---
 -- 	map("n", "<leader>k", vim.lsp.buf.hover, opts)
 -- 	map("n", "gd", vim.lsp.buf.definition, opts)
 -- 	map("n", "gD", vim.lsp.buf.declaration, opts)
@@ -36,7 +35,7 @@ local servers = {
   -- "yamlls",
   -- "terraformls",
   -- "bashls",
-  "clangd"
+  -- "clangd"
 }
 
 
@@ -60,10 +59,7 @@ vim.lsp.config("lua_ls", {
     }
   }
 })
-
 vim.lsp.enable(servers)
-
-
 
 vim.lsp.config("ciderlsp", {
   cmd = { "/google/bin/releases/cider/ciderlsp/ciderlsp", "--tooltag=nvim-lsp", "--noforward_sync_responses" },
@@ -81,18 +77,9 @@ vim.lsp.config("ciderlsp", {
 vim.lsp.enable({ "ciderlsp" })
 
 
-
-
-
-
--- DEPRECATED reqiure("lspconfig.config") configuration
--- require("lspconfig.configs").ciderlsp = {
---   default_config = {
---     cmd = { "/google/bin/releases/cider/ciderlsp/ciderlsp", "--tooltag=nvim-lsp", "--noforward_sync_responses" },
---     filetypes = { "c", "cpp", "java", "kotlin", "objc", "proto", "textpb", "go", "python", "bzl", "typescript" },
---     offset_encoding = "utf-8",
---     root_dir = lspconfig.util.root_pattern(".citc"),
---     settings = {},
---   },
--- }
--- lspconfig.ciderlsp.setup {}
+vim.lsp.config("clangd", {
+  cmd = {"clangd"},
+  root_dir = vim.fs.root(vim.api.nvim_get_current_buf(), ".citc"),
+  capabilities = capabilities
+})
+vim.lsp.enable({ "clangd" })
