@@ -11,6 +11,7 @@ local fzf_lua = require("fzf-lua")
 
 
 map("n", "<leader>ff", fzf_lua.files, { desc = "fzf files"})
+map("n", "<leader>fg", fzf_lua.live_grep,{ desc = "fzf files"})
 map("n", "<leader>fb", fzf_lua.buffers, { desc = "fzf buffers" })
 
 map("n", ";", ":", { desc = "CMD enter command mode" })

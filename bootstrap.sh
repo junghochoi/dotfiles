@@ -26,10 +26,10 @@ install_package() {
 # ----------------------------
 
 # Install Homebrew if not installed (macOS)
-if ! command -v brew &> /dev/null; then
-  echo "Homebrew not found, installing..."
-  /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
-fi
+# if ! command -v brew &> /dev/null; then
+#   echo "Homebrew not found, installing..."
+#   /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+# fi
 
 # System dependencies
 echo "Installing system dependencies..."
@@ -39,13 +39,13 @@ install_package "fzf"
 install_package "git"
 install_package "python3"
 install_package "node"
-install_package "kubectl"
-install_package "terraform"
-install_package "awscli"
-install_package "google-cloud-sdk"
-install_package "pyenv"
+# install_package "kubectl"
+# install_package "terraform"
+# install_package "awscli"
+# install_package "google-cloud-sdk"
+# install_package "pyenv"
 install_package "nvm"
-install_package "kitty" "--cask"
+# install_package "kitty" "--cask"
 
 # ----------------------------
 # Install Zsh plugins and tools
@@ -69,11 +69,11 @@ fi
 # Installing NVM, PyEnv and Other Managers
 # ----------------------------
 
-echo "Installing NVM (Node Version Manager)..."
-curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.3/install.sh | bash
-
-echo "Installing PyEnv (Python Version Manager)..."
-curl https://pyenv.run | bash
+# echo "Installing NVM (Node Version Manager)..."
+# curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.3/install.sh | bash
+#
+# echo "Installing PyEnv (Python Version Manager)..."
+# curl https://pyenv.run | bash
 
 # ----------------------------
 # Final Steps
