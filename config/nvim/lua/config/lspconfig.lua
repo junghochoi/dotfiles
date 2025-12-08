@@ -65,7 +65,7 @@ vim.lsp.config("ciderlsp", {
   cmd = { "/google/bin/releases/cider/ciderlsp/ciderlsp", "--tooltag=nvim-lsp", "--noforward_sync_responses" },
   -- Use local clangd for cpp files
   -- filetypes = { "c", "cpp", "java", "kotlin", "objc", "proto", "textpb", "go", "python", "bzl", "typescript" },
-  filetypes = { "java", "kotlin", "objc", "proto", "textpb", "go", "python", "bzl", "typescript" },
+  filetypes = {"sh", "gcl",  "java", "kotlin", "objc", "proto", "textpb", "go", "python", "bzl", "typescript" },
   offset_encoding = "utf-8",
   -- root_dir = lspconfig.util.root_pattern(".citc"),
   -- root_dir = function(bufnr)

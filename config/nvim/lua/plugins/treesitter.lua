@@ -17,7 +17,7 @@ return {
 				"lua",
 				"vim",
 				"vimdoc",
-				"go", -- Added since you are interested in Go
+				"go",
 				"json",
 				"html",
 				"css",
