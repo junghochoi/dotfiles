@@ -4,6 +4,7 @@
 #
 
 # Starship prompt
+echo "Starting starship"
 eval "$(starship init zsh)"
 
 # Set PATH
@@ -79,7 +80,3 @@ compinit
 # 🪖 Helm Auto completion 
 # ----------------------------
 # source <(helm completion zsh)
-#
-
-# Claude Code API Key
-export AVANTE_ANTHROPIC_API_KEY=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
