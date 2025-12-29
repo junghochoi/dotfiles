@@ -4,8 +4,8 @@
 	process = git-lfs filter-process
 	required = true
 [user]
-	name = c3-daniel-choi
-	email = daniel.choi@c3.ai
+	name = Daniel Choi 
+  email = dchoi315@gmail.com
 [alias]
 	co = !git checkout $(git branch | fzf)
 	st = status
