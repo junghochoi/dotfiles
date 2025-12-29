@@ -1,7 +1,7 @@
+
 return {
 	"folke/edgy.nvim",
 	opts = {
-
 		keys = {
 			-- This section maps your preferred keys to edgy's resize functions.
 			-- When an edgebar window is active, these functions are called.
@@ -33,13 +33,30 @@ return {
 			{
 				ft = "neo-tree",
 				title = "Neo-Tree",
-				size = { height = 0.6 }, -- 60%
+				size = { height = 0.5, width = 0.15 }, -- 60%
 			},
 			-- Any Trouble window at the bottom
 			{
 				ft = "trouble",
+				-- pinned = true,
 				title = "Trouble",
-				size = { height = 0.4 }, -- 40%
+				filter = function(_buf, win)
+					return vim.w[win].trouble.mode == "lsp_document_symbols"
+				end,
+				-- open = "Trouble symbols position=left focus=false filter.buf=0",
+				size = { height = 0.6 },
+			},
+		},
+		bottom = {
+			{
+				ft = "trouble",
+				title = "Trouble",
+
+				filter = function(_buf, win)
+					return vim.w[win].trouble.mode == "lsp_references"
+				end,
+
+				size = { height = 15 }, -- 40%
 			},
 		},
 	},

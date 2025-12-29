@@ -1,7 +1,6 @@
 -- local on_attach = function(_, bufnr)
 -- 	local opts = { buffer = bufnr, noremap = true, silent = true }
 -- 	local map = vim.keymap.set
---
 -- 	map("n", "<leader>k", vim.lsp.buf.hover, opts)
 -- 	map("n", "gd", vim.lsp.buf.definition, opts)
 -- 	map("n", "gD", vim.lsp.buf.declaration, opts)
@@ -24,19 +23,21 @@ end
 local capabilities = require("blink.cmp").get_lsp_capabilities()
 
 local servers = {
-	"html",
-	"lua_ls",
-	"cssls",
-	"ts_ls",
-	"jsonls",
-	"pylsp",
-	"gopls",
-	"tailwindcss",
-	"helm_ls",
-	"yamlls",
-	"terraformls",
-	"bashls",
+  "html",
+  "lua_ls",
+  -- "cssls",
+  -- "ts_ls",
+  -- "jsonls",
+  -- "pylsp",
+  -- "gopls",
+  -- "tailwindcss",
+  -- "helm_ls",
+  -- "yamlls",
+  -- "terraformls",
+  -- "bashls",
+  -- "clangd"
 }
+
 
 -- lsps with default config
 for _, lsp in ipairs(servers) do
@@ -58,17 +59,27 @@ vim.lsp.config("lua_ls", {
     }
   }
 })
-
 vim.lsp.enable(servers)
 
--- vim.lsp.config("ciderlsp", {
---   cmd = { "/google/bin/releases/cider/ciderlsp/ciderlsp", "--tooltag=nvim-lsp", "--noforward_sync_responses" },
---   filetypes = { "c", "cpp", "java", "kotlin", "objc", "proto", "textpb", "go", "python", "bzl", "typescript" },
---   offset_encoding = "utf-8",
---   -- root_dir = function(bufnr)
---   --   return vim.fs.root(bufnr, { ".citc" })
---   -- end,
---   settings = {},
--- })
---
--- vim.lsp.enable({ "ciderlsp" })
+vim.lsp.config("ciderlsp", {
+  cmd = { "/google/bin/releases/cider/ciderlsp/ciderlsp", "--tooltag=nvim-lsp", "--noforward_sync_responses" },
+  -- Use local clangd for cpp files
+  -- filetypes = { "c", "cpp", "java", "kotlin", "objc", "proto", "textpb", "go", "python", "bzl", "typescript" },
+  filetypes = {"sh", "gcl",  "java", "kotlin", "objc", "proto", "textpb", "go", "python", "bzl", "typescript" },
+  offset_encoding = "utf-8",
+  -- root_dir = lspconfig.util.root_pattern(".citc"),
+  -- root_dir = function(bufnr)
+  --   return vim.fs.root(bufnr, { ".citc" })
+  -- end,
+  root_dir = vim.fs.root(vim.api.nvim_get_current_buf(), ".citc"),
+  settings = {},
+})
+vim.lsp.enable({ "ciderlsp" })
+
+
+vim.lsp.config("clangd", {
+  cmd = {"clangd"},
+  root_dir = vim.fs.root(vim.api.nvim_get_current_buf(), ".citc"),
+  capabilities = capabilities
+})
+vim.lsp.enable({ "clangd" })

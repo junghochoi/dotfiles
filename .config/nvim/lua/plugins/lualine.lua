@@ -3,11 +3,16 @@ return {
 	dependencies = { "nvim-tree/nvim-web-devicons" },
 	opts = {
 		options = {
-			theme = "catppuccin-frappe",
+			theme = "ayu_dark",
 		},
 		sections = {
 			lualine_a = { "mode" },
-			lualine_b = { "filename" },
+			lualine_b = {
+				{
+					"filename",
+					path = 3,
+				},
+			},
 			lualine_c = {},
 			lualine_x = { "branch", "diff", "diagnostics" },
 			lualine_y = { "lsp_status" },
@@ -16,7 +21,7 @@ return {
 
 		inactive_sections = {
 			lualine_a = {},
-			lualine_b = {},
+			lualine_b = { { "filename", path = 3 } }, 
 			lualine_c = {},
 			lualine_x = {},
 			lualine_y = {},

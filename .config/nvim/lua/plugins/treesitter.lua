@@ -1,6 +1,5 @@
 return {
 	"nvim-treesitter/nvim-treesitter",
-  enabled=true,
 
 	-- The 'build' command is crucial. It tells lazy.nvim to run the
 	-- ':TSUpdate' command automatically after a fresh installation or update,
@@ -18,7 +17,7 @@ return {
 				"lua",
 				"vim",
 				"vimdoc",
-				"go", -- Added since you are interested in Go
+				"go",
 				"json",
 				"html",
 				"css",
@@ -35,9 +34,6 @@ return {
 				enable = true, -- Enables smart indentation
 			},
 
-			-- autotag = {
-			-- 	enable = true,
-			-- },
 			-- Optional: Enable the 'textobjects' module, which is another plugin.
 			-- You would usually configure this in a separate plugin entry,
 			-- but this shows how to integrate it if you had the dependency.
@@ -45,3 +41,4 @@ return {
 		})
 	end,
 }
+
