@@ -4,7 +4,6 @@
 #
 
 # Starship prompt
-echo "Starting starship"
 eval "$(starship init zsh)"
 
 # Set PATH
