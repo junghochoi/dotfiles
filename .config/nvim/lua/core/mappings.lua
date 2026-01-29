@@ -15,7 +15,7 @@ map("n", "<leader>bp", custom_funcs.copy_google3_path, { desc = "Copy google3 pa
 
 
 --neo-tree
-map("n", "<C-m>", ":Neotree filesystem toggle<CR>")
+map("n", "<C-n>", ":Neotree filesystem toggle<CR>")
 map("n", "<C-n>", ":Neotree filesystem reveal<CR>")
 
 

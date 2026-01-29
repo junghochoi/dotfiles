@@ -5,9 +5,13 @@ return {
 	-- ':TSUpdate' command automatically after a fresh installation or update,
 	-- which is what compiles the necessary language parsers.
 	build = ":TSUpdate",
+  dependencies = {
+    "smartpde/tree-sitter-cpp-google"
+  },
 
 	-- Run the configuration function when Neovim starts.
 	config = function()
+    require("tree-sitter-cpp-google").setup()
 		local configs = require("nvim-treesitter.configs")
 
 		configs.setup({
@@ -24,15 +28,16 @@ return {
 			},
 
 			-- Install parsers synchronously (recommended).
-			sync_install = false,
+			sync_install = true,
 
 			-- Enable the Tree-sitter modules you want:
 			highlight = {
 				enable = true, -- Enables syntax highlighting
+        additional_vim_regex_highlighting = true
 			},
-			indent = {
-				enable = true, -- Enables smart indentation
-			},
+			-- indent = {
+			-- 	enable = true, -- Enables smart indentation
+			-- },
 
 			-- Optional: Enable the 'textobjects' module, which is another plugin.
 			-- You would usually configure this in a separate plugin entry,

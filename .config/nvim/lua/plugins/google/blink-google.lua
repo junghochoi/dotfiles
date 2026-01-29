@@ -1,6 +1,12 @@
 return {
 	"Saghen/blink.cmp",
-	dependencies = { url = "sso://user/zshihang/blink-ciderlsp" },
+	-- dependencies = { url = "sso://user/zshihang/blink-ciderlsp" },
+  dependencies = {
+    "blink-ciderlsp",
+    dir = "~/dchoi/blink-ciderlsp",
+    dev = true,
+
+  },
 	opts = {
 		sources = {
 			default = {
