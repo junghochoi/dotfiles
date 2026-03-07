@@ -67,6 +67,8 @@ map("n", "<leader>td", "<cmd>Trouble lsp_definitions toggle focus=true  <cr>", {
 map("n", "<leader>tr", "<cmd>Trouble lsp_references toggle focus=true <cr>", { desc = "Trouble LSP References" })
 map("n", "<leader>th", function() vim.lsp.buf.hover({ border = "rounded" }) end, { desc = "lsp hover" })
 
+map('n', '<leader>ca', vim.lsp.buf.code_action, { desc = "LSP code action" })
+
 
 -- cider-agent nvim
 local agent = require("cider-agent")
@@ -114,14 +116,14 @@ map("n", "<leader>cl", function() gs.comments.list() end, { desc = "Comments" })
 map("n", "<leader>clu", function() gs.comments.list({ resolved = false }) end, { desc = "Comments (unresolved)" })
 
 -- Blaze (Google-specific Build System) Commands
-map("n", "<leader>b", function() gs.blaze.build() end, { desc = "blaze build" })
-map("n", "<leader>ba", function() gs.blaze.build({ on_pkg = true }) end, { desc = "blaze build current package" })
-map("n", "<leader>bu", function() gs.blaze.build({ under_cursor = true }) end, { desc = "blaze build under cursor" })
-map("n", "<leader>ib", function() gs.blaze.build({ exec = "iblaze" }) end, { desc = "iblaze build" })
-map("n", "<leader>it", function() gs.blaze.test({ exec = "iblaze" }) end, { desc = "iblaze test" })
-map("n", "<leader>bt", function() gs.blaze.test() end, { desc = "blaze test" })
-map("n", "<leader>bta", function() gs.blaze.test({ on_pkg = true }) end, { desc = "blaze test current package" })
-map("n", "<leader>ut", function() gs.blaze.test({ under_cursor = true }) end, { desc = "blaze test under cursor" })
-map("n", "<leader>tl", function() gs.blaze.targets() end, { desc = "blaze targets" })
-map("n", "<leader>bc", function() gs.blaze.commands() end, { desc = "blaze commands" })
-map("n", "<leader>bcl", function() gs.blaze.build_cleaner() end, { desc = "build cleaner" })
+-- map("n", "<leader>b", function() gs.blaze.build() end, { desc = "blaze build" })
+-- map("n", "<leader>ba", function() gs.blaze.build({ on_pkg = true }) end, { desc = "blaze build current package" })
+-- map("n", "<leader>bu", function() gs.blaze.build({ under_cursor = true }) end, { desc = "blaze build under cursor" })
+-- map("n", "<leader>ib", function() gs.blaze.build({ exec = "iblaze" }) end, { desc = "iblaze build" })
+-- map("n", "<leader>it", function() gs.blaze.test({ exec = "iblaze" }) end, { desc = "iblaze test" })
+-- map("n", "<leader>bt", function() gs.blaze.test() end, { desc = "blaze test" })
+-- map("n", "<leader>bta", function() gs.blaze.test({ on_pkg = true }) end, { desc = "blaze test current package" })
+-- map("n", "<leader>ut", function() gs.blaze.test({ under_cursor = true }) end, { desc = "blaze test under cursor" })
+-- map("n", "<leader>tl", function() gs.blaze.targets() end, { desc = "blaze targets" })
+-- map("n", "<leader>bc", function() gs.blaze.commands() end, { desc = "blaze commands" })
+-- map("n", "<leader>bcl", function() gs.blaze.build_cleaner() end, { desc = "build cleaner" })
