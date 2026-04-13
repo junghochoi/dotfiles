@@ -2,6 +2,8 @@
 local map = vim.keymap.set
 local fzf_lua = require("fzf-lua")
 
+map("n", "<leader>rn", vim.lsp.buf.rename, { desc = "Rename Symbol"})
+
 map("n", "<leader>ff", fzf_lua.files, { desc = "fzf files"})
 map("n", "<leader>fg", fzf_lua.live_grep,{ desc = "fzf files"})
 map("n", "<leader>fb", fzf_lua.buffers, { desc = "fzf buffers" })
