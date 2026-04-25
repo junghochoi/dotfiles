@@ -1,0 +1,30 @@
+#!/bin/bash
+
+# $1 = Window search term (e.g., "firefox")
+# $2 = Launch command (e.g., "firefox")
+
+if [ -z "$1" ]; then
+    echo "Usage: $0 <search_term> [launch_command]"
+    exit 1
+fi
+
+# Use the search term as the launch command if $2 isn't provided
+SEARCH_TERM=$1
+LAUNCH_CMD=${2:-$1}
+
+# Search for the window ID
+# We use --class first as it's more reliable than the title
+WIN_ID=$(kdotool search --class --limit 1 "$SEARCH_TERM" 2>/dev/null)
+
+# If not found by class, try searching by name (title)
+if [ -z "$WIN_ID" ]; then
+    WIN_ID=$(kdotool search --name --limit 1 "$SEARCH_TERM" 2>/dev/null)
+fi
+
+if [ -n "$WIN_ID" ]; then
+    # Window found, focus it
+    kdotool windowactivate "$WIN_ID"
+else
+    # Window not found, launch it
+    $LAUNCH_CMD &
+fi
