@@ -67,9 +67,12 @@ vim.lsp.config("ciderlsp", {
   -- filetypes = { "c", "cpp", "java", "kotlin", "objc", "proto", "textpb", "go", "python", "bzl", "typescript" },
   filetypes = {"sh", "gcl",  "java", "kotlin", "objc", "proto", "textpb", "go", "python", "bzl", "typescript" },
   offset_encoding = "utf-8",
-  -- root_dir = lspconfig.util.root_pattern(".citc"),
   -- root_dir = function(bufnr)
   --   return vim.fs.root(bufnr, { ".citc" })
+  -- end,
+  -- root_dir = function(fname)
+  --   -- Look for .citc starting from the current file's directory
+  --   return vim.fs.root(fname, ".citc")
   -- end,
   root_dir = vim.fs.root(vim.api.nvim_get_current_buf(), ".citc"),
   settings = {},

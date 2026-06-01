@@ -44,5 +44,17 @@ d.config({
 })
 
 
+-- Python specific settings
+vim.api.nvim_create_autocmd("FileType", {
+	pattern = "python",
+	callback = function()
+		opt.shiftwidth = 2
+		opt.tabstop = 2
+		opt.softtabstop = 2
+		opt.expandtab = true
+	end,
+})
+
+
 -- Color Scheme
 cmd("colorscheme catppuccin-frappe")
