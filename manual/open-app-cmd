@@ -1,0 +1,39 @@
+#!/bin/bash
+
+SEARCH_TERM=$1
+LAUNCH_CMD=${2:-$1}
+STATE_FILE="/tmp/kdotool_cycle_${SEARCH_TERM// /_}"
+
+# 1. Fetch all window IDs, filtering for only visible ones
+# We search both Class and Name to be sure
+WIN_IDS=$(kdotool search --onlyvisible --classname "$SEARCH_TERM" 2>/dev/null)
+if [ -z "$WIN_IDS" ]; then
+    WIN_IDS=$(kdotool search --onlyvisible --name "$SEARCH_TERM" 2>/dev/null)
+fi
+
+# 2. If windows exist, cycle them
+if [ -n "$WIN_IDS" ]; then
+    # Convert IDs into an array
+    readarray -t ID_ARRAY <<< "$WIN_IDS"
+    NUM_WINDOWS=${#ID_ARRAY[@]}
+
+    # Get the last used index
+    if [ -f "$STATE_FILE" ]; then
+        LAST_INDEX=$(cat "$STATE_FILE")
+        # Cycle to next (wrap around if at the end)
+        NEXT_INDEX=$(( (LAST_INDEX + 1) % NUM_WINDOWS ))
+    else
+        NEXT_INDEX=0
+    fi
+
+    # Activate the window
+    TARGET_ID=${ID_ARRAY[$NEXT_INDEX]}
+    kdotool windowactivate "$TARGET_ID"
+
+    # Save current index for next time
+    echo "$NEXT_INDEX" > "$STATE_FILE"
+else
+    # 3. No windows found, launch a new instance
+    $LAUNCH_CMD &
+    rm -f "$STATE_FILE"
+fi
