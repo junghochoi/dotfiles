@@ -1,30 +1,36 @@
 #!/bin/bash
 
-# $1 = Window search term (e.g., "firefox")
-# $2 = Launch command (e.g., "firefox")
-
-if [ -z "$1" ]; then
-    echo "Usage: $0 <search_term> [launch_command]"
-    exit 1
-fi
-
-# Use the search term as the launch command if $2 isn't provided
 SEARCH_TERM=$1
 LAUNCH_CMD=${2:-$1}
+STATE_FILE="/tmp/kdotool_cycle_${SEARCH_TERM// /_}"
 
-# Search for the window ID
-# We use --class first as it's more reliable than the title
-WIN_ID=$(kdotool search --class --limit 1 "$SEARCH_TERM" 2>/dev/null)
+# 1. Fetch all window IDs, filtering for only visible ones
+# By passing both flags together, kdotool will search BOTH Classname and Name in one shot
+WIN_IDS=$(kdotool search --onlyvisible --classname --name "$SEARCH_TERM" 2>/dev/null)
 
-# If not found by class, try searching by name (title)
-if [ -z "$WIN_ID" ]; then
-    WIN_ID=$(kdotool search --name --limit 1 "$SEARCH_TERM" 2>/dev/null)
-fi
+# 2. If windows exist, cycle them
+if [ -n "$WIN_IDS" ]; then
+    # Convert IDs into an array
+    readarray -t ID_ARRAY <<< "$WIN_IDS"
+    NUM_WINDOWS=${#ID_ARRAY[@]}
 
-if [ -n "$WIN_ID" ]; then
-    # Window found, focus it
-    kdotool windowactivate "$WIN_ID"
+    # Get the last used index
+    if [ -f "$STATE_FILE" ]; then
+        LAST_INDEX=$(cat "$STATE_FILE")
+        # Cycle to next (wrap around if at the end)
+        NEXT_INDEX=$(( (LAST_INDEX + 1) % NUM_WINDOWS ))
+    else
+        NEXT_INDEX=0
+    fi
+
+    # Activate the window
+    TARGET_ID=${ID_ARRAY[$NEXT_INDEX]}
+    kdotool windowactivate "$TARGET_ID"
+
+    # Save current index for next time
+    echo "$NEXT_INDEX" > "$STATE_FILE"
 else
-    # Window not found, launch it
+    # 3. No windows found, launch a new instance
     $LAUNCH_CMD &
+    rm -f "$STATE_FILE"
 fi
